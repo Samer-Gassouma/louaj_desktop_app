@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Thème clair confortable - tons chauds et doux */
+    --background: 39 10% 94%;
+    /* très léger, évite l'éblouissement */
+    --foreground: 210 8% 20%;
+    /* texte sombre sans noir pur */
+    --card: 39 15% 96%;
+    /* cartes un peu plus claires */
+    --card-foreground: 210 8% 20%;
+    --popover: 39 15% 96%;
+    --popover-foreground: 210 8% 20%;
+    --primary: 30 20% 45%;
+    --primary1: 30 62% 36%;
+
+    /* ton doux et chaud */
+    --primary-foreground: 39 10% 96%;
+    --secondary: 35 18% 88%;
+    --secondary-foreground: 210 12% 25%;
+    --muted: 35 12% 92%;
+    --muted-foreground: 210 8% 50%;
+    --accent: 30 25% 85%;
+    --accent-foreground: 210 12% 25%;
+    --destructive: 5 70% 60%;
+    /* rouge très doux */
+    --destructive-foreground: 39 10% 96%;
+    --border: 35 12% 90%;
+    --input: 35 14% 90%;
+    --ring: 30 18% 50%;
+    --chart-1: 30 40% 50%;
+    --chart-2: 160 30% 50%;
+    --chart-3: 200 20% 60%;
+    --chart-4: 45 45% 60%;
+    --chart-5: 15 60% 60%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Thème sombre confortable - gris foncé plutôt que noir */
+    --background: 210 10% 12%;
+    /* presque noir, léger bleu */
+    --foreground: 210 10% 85%;
+    --card: 210 10% 15%;
+    --card-foreground: 210 10% 85%;
+    --popover: 210 10% 15%;
+    --popover-foreground: 210 10% 85%;
+    --primary: 210 15% 65%;
+    --primary-foreground: 210 10% 15%;
+    --secondary: 210 8% 18%;
+    --secondary-foreground: 210 12% 80%;
+    --muted: 210 8% 16%;
+    --muted-foreground: 210 10% 65%;
+    --accent: 210 8% 25%;
+    --accent-foreground: 210 12% 80%;
+    --destructive: 5 60% 50%;
+    --destructive-foreground: 210 10% 85%;
+    --border: 210 8% 20%;
+    --input: 210 8% 18%;
+    --ring: 210 15% 60%;
+    --chart-1: 210 30% 60%;
+    --chart-2: 160 25% 50%;
+    --chart-3: 200 20% 55%;
+    --chart-4: 45 40% 65%;
+    --chart-5: 15 55% 65%;
+  }
+
+  /* Mode sépia pour réduire encore plus la fatigue oculaire */
+  .sepia {
+    --background: 40 15% 96%;
+    --foreground: 30 10% 25%;
+    --card: 40 20% 94%;
+    --card-foreground: 30 10% 25%;
+    --popover: 40 20% 94%;
+    --popover-foreground: 30 10% 25%;
+    --primary: 30 20% 40%;
+    --primary-foreground: 40 15% 96%;
+    --secondary: 35 25% 88%;
+    --secondary-foreground: 30 15% 30%;
+    --muted: 35 18% 90%;
+    --muted-foreground: 30 12% 50%;
+    --accent: 30 25% 85%;
+    --accent-foreground: 30 15% 30%;
+    --destructive: 5 65% 55%;
+    --destructive-foreground: 40 15% 96%;
+    --border: 35 18% 85%;
+    --input: 35 18% 88%;
+    --ring: 30 25% 30%;
+    --chart-1: 30 45% 55%;
+    --chart-2: 160 25% 45%;
+    --chart-3: 200 20% 35%;
+    --chart-4: 40 50% 55%;
+    --chart-5: 20 60% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  p,
+  li,
+  span {
+    line-height: 1.7;
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply bg-input;
+  }
+
+  * {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: calc(var(--radius) - 2px);
+  }
+}
+
+@layer utilities {
+  .text-comfortable {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+  }
+
+  .bg-soft {
+    background-color: hsl(var(--muted));
+  }
+
+  .shadow-soft {
+    box-shadow: 0 2px 8px -2px hsl(var(--foreground) / 0.1);
+  }
+
+  .border-soft {
+    border-color: hsl(var(--border) / 0.6);
+  }
+}
